@@ -99,6 +99,24 @@ public class Student {
 		}
 			
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public String getStudentID() {
+		return studentID;
+	}
+
+	public List<String> getCourses() {
+		return courses;
+	}
+	
+	
 	
 
 }
