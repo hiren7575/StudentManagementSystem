@@ -115,8 +115,4 @@ public class Student {
 	public List<String> getCourses() {
 		return courses;
 	}
-	
-	
-	
-
 }

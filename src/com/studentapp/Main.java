@@ -15,7 +15,6 @@ public class Main {
 
 		System.out.println("************* StudentManagement System ********************");
 
-		
 		studentList = new ArrayList<Student>();
 		
 		scanner = new Scanner(System.in);
@@ -30,31 +29,30 @@ public class Main {
 		int option = scanner.nextInt();
 		
 		switch (option) {
-		case 1:
-			enrollStudent(scanner);
-			break;
-		case 2:
-			findStudentById(scanner);
-			break;
-		case 3:
-			printAllStudentData();
-			break;
-		case 4:
-			sortByName();
-			break;
-		case 5:
-			exit();
-			break;
-		default: System.out.println("Invalid option selected..!! Please select option between 1 to 5");
-		}
+			case 1:
+				enrollStudent(scanner);
+				break;
+			case 2:
+				findStudentById(scanner);
+				break;
+			case 3:
+				printAllStudentData();
+				break;
+			case 4:
+				sortByName();
+				break;
+			case 5:
+				exit();
+				break;
+			default: System.out.println("Invalid option selected..!! Please select option between 1 to 5");
+			}
 		
 		}
 	}
 	
 	private static void exit() {
 		System.out.println("Good BYE...!!!");
-		System.exit(0);
-		
+		System.exit(0);	
 	}
 
 	private static void printAllStudentData() {
@@ -64,14 +62,12 @@ public class Main {
 				student.printStudentInfo();
 			}
 			System.out.println("-----****************************************-------");
-		
 		}
 		
 		else {
 			System.err.println("Student List is empty!!! No Student Record Found");
 		}
 		
-			
 	}
 
 	private static void findStudentById(Scanner scanner2) {
@@ -127,23 +123,5 @@ public class Main {
 		
 		Collections.sort(studentList,studentNameComparator);
 		System.out.println(studentList);
-		
 	}
-
-	public static Student findStudentById(String studentID) {
-		Student result= null;
-		
-		try {
-			result = studentList.stream().filter(x -> x.getStudentID().equalsIgnoreCase(studentID))
-			.findFirst()
-			.orElseThrow(()-> new RuntimeException("No Data Found"));
-		}
-		catch(RuntimeException e){
-			System.err.println("Student with ID "+studentID+" not found!!");
-		}
-
-		
-		return result;
-	}
-
 }
